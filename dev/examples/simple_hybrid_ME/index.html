@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Simple ME-NeuralFMU · FMIFlux.jl</title><meta name="title" content="Simple ME-NeuralFMU · FMIFlux.jl"/><meta property="og:title" content="Simple ME-NeuralFMU · FMIFlux.jl"/><meta property="twitter:title" content="Simple ME-NeuralFMU · FMIFlux.jl"/><meta name="description" content="Documentation for FMIFlux.jl."/><meta property="og:description" content="Documentation for FMIFlux.jl."/><meta property="twitter:description" content="Documentation for FMIFlux.jl."/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../"><img src="../../assets/logo.png" alt="FMIFlux.jl logo"/></a><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Introduction</a></li><li><a class="tocitem" href="../../faq/">FAQ</a></li><li><input class="collapse-toggle" id="menuitem-3" type="checkbox" checked/><label class="tocitem" for="menuitem-3"><span class="docs-label">Examples</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../overview/">Overview</a></li><li><a class="tocitem" href="../simple_hybrid_CS/">Simple CS-NeuralFMU</a></li><li class="is-active"><a class="tocitem" href>Simple ME-NeuralFMU</a><ul class="internal"><li><a class="tocitem" href="#License"><span>License</span></a></li><li><a class="tocitem" href="#Introduction"><span>Introduction</span></a></li><li><a class="tocitem" href="#Packages"><span>Packages</span></a></li><li><a class="tocitem" href="#Code"><span>Code</span></a></li><li><a class="tocitem" href="#Results"><span>Results</span></a></li><li><a class="tocitem" href="#Build-information"><span>Build information</span></a></li></ul></li><li><a class="tocitem" href="../juliacon_2023/">JuliaCon 2023</a></li><li><a class="tocitem" href="../modelica_conference_2021/">Modelica Conference 2021</a></li><li><a class="tocitem" href="../workshops/">Pluto Workshops</a></li></ul></li><li><a class="tocitem" href="../../library/">Library Functions</a></li><li><a class="tocitem" href="../../related/">Related Publication</a></li><li><a class="tocitem" href="../../contents/">Contents</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Examples</a></li><li class="is-active"><a href>Simple ME-NeuralFMU</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Simple ME-NeuralFMU</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/0815Creeper/FMIFlux.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Neural-FMUs-in-model-exchange-(ME)-mode"><a class="docs-heading-anchor" href="#Neural-FMUs-in-model-exchange-(ME)-mode">Neural FMUs in model exchange (ME) mode</a><a id="Neural-FMUs-in-model-exchange-(ME)-mode-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-FMUs-in-model-exchange-(ME)-mode" title="Permalink"></a></h1><p>Tutorial by Tobias Thummerer</p><p><em>Last edit: 03.09.2024</em></p><h2 id="License"><a class="docs-heading-anchor" href="#License">License</a><a id="License-1"></a><a class="docs-heading-anchor-permalink" href="#License" title="Permalink"></a></h2><pre><code class="language-julia hljs"># Copyright (c) 2021 Tobias Thummerer, Lars Mikelsons
+# Licensed under the MIT license. 
+# See LICENSE (https://github.com/thummeto/FMIFlux.jl/blob/main/LICENSE) file in the project root for details.</code></pre><h2 id="Introduction"><a class="docs-heading-anchor" href="#Introduction">Introduction</a><a id="Introduction-1"></a><a class="docs-heading-anchor-permalink" href="#Introduction" title="Permalink"></a></h2><p>Functional mock-up units (FMUs) can easily be seen as containers for simulation models. </p><p>This example shows how to build a very easy neural FMU by combining a model exchange (ME) FMU and an artificial neural network (ANN). The goal is, to train the hybrid model based on a very simple simulation model.</p><h2 id="Packages"><a class="docs-heading-anchor" href="#Packages">Packages</a><a id="Packages-1"></a><a class="docs-heading-anchor-permalink" href="#Packages" title="Permalink"></a></h2><p>First, import the packages needed:</p><pre><code class="language-julia hljs"># imports
+using FMI                       # for importing and simulating FMUs
+using FMIFlux                   # for building neural FMUs
+using FMIFlux.Flux              # the default machine learning library in Julia
+using FMIZoo                    # a collection of demo FMUs
+using DifferentialEquations     # the (O)DE solver suite in Julia
+using Plots                     # for plotting some results
+
+import Random                   # for random variables (and random initialization)
+Random.seed!(1234)              # makes our program deterministic</code></pre><pre><code class="nohighlight hljs">Random.TaskLocalRNG()</code></pre><h2 id="Code"><a class="docs-heading-anchor" href="#Code">Code</a><a id="Code-1"></a><a class="docs-heading-anchor-permalink" href="#Code" title="Permalink"></a></h2><p>Next, start and stop time are set for the simulation, as well as some intermediate time points <code>tSave</code> to record simulation results.</p><pre><code class="language-julia hljs">tStart = 0.0
+tStep = 0.01
+tStop = 5.0
+tSave = collect(tStart:tStep:tStop)</code></pre><pre><code class="nohighlight hljs">501-element Vector{Float64}:
+ 0.0
+ 0.01
+ 0.02
+ 0.03
+ 0.04
+ 0.05
+ 0.06
+ 0.07
+ 0.08
+ 0.09
+ 0.1
+ 0.11
+ 0.12
+ ⋮
+ 4.89
+ 4.9
+ 4.91
+ 4.92
+ 4.93
+ 4.94
+ 4.95
+ 4.96
+ 4.97
+ 4.98
+ 4.99
+ 5.0</code></pre><h3 id="Complex-FMU-(ground-truth-training-data)"><a class="docs-heading-anchor" href="#Complex-FMU-(ground-truth-training-data)">Complex FMU (ground truth training data)</a><a id="Complex-FMU-(ground-truth-training-data)-1"></a><a class="docs-heading-anchor-permalink" href="#Complex-FMU-(ground-truth-training-data)" title="Permalink"></a></h3><p>First, let&#39;s load a model from the <em>FMIZoo.jl</em>, an easy pendulum including some friction. We will use that to generate training data.</p><pre><code class="language-julia hljs"># let&#39;s load the FMU in ME-mode (some FMUs support multiple simulation modes)
+fmu_gt = loadFMU(&quot;SpringFrictionPendulum1D&quot;, &quot;Dymola&quot;, &quot;2022x&quot;; type=:ME)  
+
+# and print some info
+info(fmu_gt)   </code></pre><pre><code class="nohighlight hljs">#################### Begin information for FMU ####################
+	Model name:			SpringFrictionPendulum1D
+	FMI-Version:			2.0
+	GUID:				{2e178ad3-5e9b-48ec-a7b2-baa5669efc0c}
+	Generation tool:		Dymola Version 2022x (64-bit), 2021-10-08
+	Generation time:		2022-05-19T06:54:12Z
+	Var. naming conv.:		structured
+	Event indicators:		24
+	Inputs:				0
+
+
+	Outputs:			0
+	States:				2
+		33554432 [&quot;mass.s&quot;]
+		33554433 [&quot;mass.v&quot;, &quot;mass.v_relfric&quot;]
+	Parameters:			12
+		16777216 [&quot;fricScale&quot;]
+		16777217 [&quot;s0&quot;]
+		16777218 [&quot;v0&quot;]
+		16777219 [&quot;fixed.s0&quot;]
+		...
+		16777223 [&quot;mass.smin&quot;]
+		16777224 [&quot;mass.v_small&quot;]
+		16777225 [&quot;mass.L&quot;]
+		16777226 [&quot;mass.m&quot;]
+		16777227 [&quot;mass.fexp&quot;]
+	Supports Co-Simulation:		true
+		Model identifier:	SpringFrictionPendulum1D
+		Get/Set State:		true
+		Serialize State:	true
+		Dir. Derivatives:	true
+		Var. com. steps:	true
+		Input interpol.:	true
+		Max order out. der.:	1
+	Supports Model-Exchange:	true
+		Model identifier:	SpringFrictionPendulum1D
+		Get/Set State:		true
+		Serialize State:	true
+		Dir. Derivatives:	true
+##################### End information for FMU #####################</code></pre><p>Next, the start state <code>x0</code> is defined, together with some variables to be recorded <code>vrs</code> (they are identified by the names that where used during export of the FMU). The FMU is simulated and the results are plotted.</p><pre><code class="language-julia hljs"># the initial state we start our simulation with, position (0.5 m) and velocity (0.0 m/s) of the pendulum
+x0 = [0.5, 0.0] 
+
+# some variables we are interested in, so let&#39;s record them: position, velocity and acceleration
+vrs = [&quot;mass.s&quot;, &quot;mass.v&quot;, &quot;mass.a&quot;]  
+
+# simulate the FMU ...
+sol_gt = simulate(fmu_gt, (tStart, tStop); recordValues=vrs, saveat=tSave, x0=x0)    
+
+# ... and plot it! (but only the recorded values, not the states)
+plot(sol_gt; states=false)                                                                    </code></pre><pre><code class="nohighlight hljs">[34mSimulating ME-FMU ...   0%|█                             |  ETA: N/A[39m
+
+[34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:16[39m</code></pre><p>After the simulation, specific variables can be extracted. We will use them for the later training - as training data!</p><pre><code class="language-julia hljs">pos_gt = getValue(sol_gt, &quot;mass.s&quot;)</code></pre><pre><code class="nohighlight hljs">501-element Vector{Float64}:
+ 0.5
+ 0.5002131418271644
+ 0.500854887495059
+ 0.5019281657516876
+ 0.5034351795370763
+ 0.50537742474533
+ 0.5077556973743648
+ 0.5105701110158936
+ 0.5138201163230011
+ 0.5175045276221266
+ 0.5216215241870015
+ 0.5261686593877334
+ 0.5311429006829193
+ ⋮
+ 1.0616593561654388
+ 1.0627701713285898
+ 1.0637521434353139
+ 1.0646032889175199
+ 1.0653217119141543
+ 1.0659056034549985
+ 1.0663532416435237
+ 1.0666629937790932
+ 1.0668333163759727
+ 1.0668685641881956
+ 1.0668685641871958
+ 1.0668685641861957</code></pre><p>Now, we can release the FMU again - we don&#39;t need it anymore.</p><pre><code class="language-julia hljs">unloadFMU(fmu_gt)</code></pre><h3 id="Simple-FMU"><a class="docs-heading-anchor" href="#Simple-FMU">Simple FMU</a><a id="Simple-FMU-1"></a><a class="docs-heading-anchor-permalink" href="#Simple-FMU" title="Permalink"></a></h3><p>Now, we load an even more simple system, that we use as <em>core</em> for our neural FMU: A pendulum <em>without</em> friction. Again, we load, simulate and plot the FMU and its results.</p><pre><code class="language-julia hljs">fmu = loadFMU(&quot;SpringPendulum1D&quot;, &quot;Dymola&quot;, &quot;2022x&quot;; type=:ME)
+info(fmu)
+
+sol_fmu = simulate(fmu, (tStart, tStop); recordValues=vrs, saveat=tSave)
+plot(sol_fmu)</code></pre><pre><code class="nohighlight hljs">#################### Begin information for FMU ####################
+	Model name:			SpringPendulum1D
+	FMI-Version:			2.0
+	GUID:				{fc15d8c4-758b-48e6-b00e-5bf47b8b14e5}
+	Generation tool:		Dymola Version 2022x (64-bit), 2021-10-08
+	Generation time:		2022-05-19T06:54:23Z
+	Var. naming conv.:		structured
+	Event indicators:		0
+	Inputs:				0
+	Outputs:			0
+	States:				2
+		33554432 [&quot;mass.s&quot;]
+		33554433 [&quot;mass.v&quot;]
+	Parameters:			7
+		16777216 [&quot;mass_s0&quot;]
+		16777217 [&quot;mass_v0&quot;]
+		16777218 [&quot;fixed.s0&quot;]
+		16777219 [&quot;spring.c&quot;]
+		16777220 [&quot;spring.s_rel0&quot;]
+		16777221 [&quot;mass.m&quot;]
+		16777222 [&quot;mass.L&quot;]
+	Supports Co-Simulation:		true
+		Model identifier:	SpringPendulum1D
+		Get/Set State:		true
+		Serialize State:	true
+		Dir. Derivatives:	true
+		Var. com. steps:	true
+		Input interpol.:	true
+		Max order out. der.:	1
+	Supports Model-Exchange:	true
+		Model identifier:	SpringPendulum1D
+		Get/Set State:		true
+		Serialize State:	true
+		Dir. Derivatives:	true
+##################### End information for FMU #####################</code></pre><h3 id="Neural-FMU"><a class="docs-heading-anchor" href="#Neural-FMU">Neural FMU</a><a id="Neural-FMU-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-FMU" title="Permalink"></a></h3><p>Now the fun begins, let&#39;s combine the loaded FMU and the ANN! </p><pre><code class="language-julia hljs"># get number of states
+numStates = getNumberOfStates(fmu)
+
+net = Chain(x -&gt; fmu(x=x, dx_refs=:all),    # we can use the FMU just like any other neural network layer!
+            Dense(numStates, 16, tanh),     # some additional dense layers ...
+            Dense(16, 16, tanh),
+            Dense(16, numStates))
+
+# the neural FMU is constructed by providing the FMU, the net topology, start and stop time and a solver (here: Tsit5)
+neuralFMU = ME_NeuralFMU(fmu, net, (tStart, tStop), Tsit5(); saveat=tSave);</code></pre><p>Now, we can check how the neural FMU performs before the actual training!</p><pre><code class="language-julia hljs">solutionBefore = neuralFMU(x0)
+plot(solutionBefore)</code></pre><p>Not that ideal... let&#39;s add our ground truth data to compare!</p><pre><code class="language-julia hljs">plot!(sol_gt; values=false)</code></pre><p>Ufff... only the starting state for position and velocity is correct. Training seems a good idea here!</p><h3 id="Loss-function"><a class="docs-heading-anchor" href="#Loss-function">Loss function</a><a id="Loss-function-1"></a><a class="docs-heading-anchor-permalink" href="#Loss-function" title="Permalink"></a></h3><p>Before we can train the neural FMU, we need to define a loss function. We use the common mean-squared-error (MSE) here.</p><pre><code class="language-julia hljs">function loss(p)
+    # simulate the neural FMU by calling it
+    sol_nfmu = neuralFMU(x0; p=p)
+
+    # we use the first state, because we know that&#39;s the position
+    pos_nfmu = getState(sol_nfmu, 1; isIndex=true)
+
+    # we could also identify the position state by its name
+    #pos_nfmu = getState(solution, &quot;mass.s&quot;)
+    
+    FMIFlux.Losses.mse(pos_gt, pos_nfmu) 
+end</code></pre><pre><code class="nohighlight hljs">loss (generic function with 1 method)</code></pre><h3 id="Callback"><a class="docs-heading-anchor" href="#Callback">Callback</a><a id="Callback-1"></a><a class="docs-heading-anchor-permalink" href="#Callback" title="Permalink"></a></h3><p>Further, we define a simple logging function for our training.</p><pre><code class="language-julia hljs">global counter = 0
+function callback(p)
+    global counter += 1
+    if counter % 20 == 1
+        lossVal = loss(p[1])
+        @info &quot;Loss [$(counter)]: $(round(lossVal, digits=6))&quot;
+    end
+end</code></pre><pre><code class="nohighlight hljs">callback (generic function with 1 method)</code></pre><h3 id="Training"><a class="docs-heading-anchor" href="#Training">Training</a><a id="Training-1"></a><a class="docs-heading-anchor-permalink" href="#Training" title="Permalink"></a></h3><p>For training, we only need to extract the parameters to optimize and pass it to a pre-build train command <code>FMIFlux.train!</code>.</p><pre><code class="language-julia hljs">optim = Adam()
+
+p = FMIFlux.params(neuralFMU)
+
+FMIFlux.train!(
+    loss, 
+    neuralFMU,
+    Iterators.repeated((), 500), 
+    optim; 
+    cb=()-&gt;callback(p)
+) </code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [1]: 0.061175
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [21]: 0.040784
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [41]: 0.040451
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [61]: 0.039743
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [81]: 0.039087
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [101]: 0.03815
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [121]: 0.035558
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [141]: 0.021058
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [161]: 0.006635
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [181]: 0.004409
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [201]: 0.003957
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [221]: 0.003682
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [241]: 0.003449
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [261]: 0.00321
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [281]: 0.002995
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [301]: 0.002806
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [321]: 0.002578
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [341]: 0.002362
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [361]: 0.002152
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [381]: 0.001956
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [401]: 0.001789
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [421]: 0.001617
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [441]: 0.001453
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [461]: 0.001301
+
+
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [481]: 0.00116</code></pre><h2 id="Results"><a class="docs-heading-anchor" href="#Results">Results</a><a id="Results-1"></a><a class="docs-heading-anchor-permalink" href="#Results" title="Permalink"></a></h2><p>Finally, we can compare the results before and after training, as well as the ground truth data:</p><pre><code class="language-julia hljs">solutionAfter = neuralFMU(x0)
+
+fig = plot(solutionBefore; stateIndices=1:1, label=&quot;Neural FMU (before)&quot;, ylabel=&quot;position [m]&quot;)
+plot!(fig, solutionAfter; stateIndices=1:1, label=&quot;Neural FMU (after)&quot;)
+plot!(fig, tSave, pos_gt; label=&quot;ground truth&quot;)
+fig</code></pre><p>Finally, the FMU is unloaded and memory released.</p><pre><code class="language-julia hljs">unloadFMU(fmu)</code></pre><h3 id="Source"><a class="docs-heading-anchor" href="#Source">Source</a><a id="Source-1"></a><a class="docs-heading-anchor-permalink" href="#Source" title="Permalink"></a></h3><p>[1] Tobias Thummerer, Lars Mikelsons and Josef Kircher. 2021. <strong>NeuralFMU: towards structural integration of FMUs into neural networks.</strong> Martin Sjölund, Lena Buffoni, Adrian Pop and Lennart Ochel (Ed.). Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021. Linköping University Electronic Press, Linköping (Linköping Electronic Conference Proceedings ; 181), 297-306. <a href="https://doi.org/10.3384/ecp21181297">DOI: 10.3384/ecp21181297</a></p><h2 id="Build-information"><a class="docs-heading-anchor" href="#Build-information">Build information</a><a id="Build-information-1"></a><a class="docs-heading-anchor-permalink" href="#Build-information" title="Permalink"></a></h2><pre><code class="language-julia hljs"># check package build information for reproducibility
+import Pkg; Pkg.status()</code></pre><pre><code class="nohighlight hljs">[32m[1mStatus[22m[39m `D:\a\FMIFlux.jl\FMIFlux.jl\examples\Project.toml`
+  [90m[0c46a032] [39mDifferentialEquations v7.14.0
+  [90m[14a09403] [39mFMI v0.14.1
+  [90m[fabad875] [39mFMIFlux v0.13.0 `D:\a\FMIFlux.jl\FMIFlux.jl`
+  [90m[9fcbc62e] [39mFMIImport v1.0.7
+  [90m[724179cf] [39mFMIZoo v1.1.0
+  [90m[587475ba] [39mFlux v0.14.19
+  [90m[7073ff75] [39mIJulia v1.25.0
+[32m⌃[39m [90m[033835bb] [39mJLD2 v0.4.53
+  [90m[b964fa9f] [39mLaTeXStrings v1.3.1
+  [90m[f0f68f2c] [39mPlotlyJS v0.18.14
+  [90m[91a5bcdd] [39mPlots v1.40.8
+  [90m[9a3f8284] [39mRandom
+[36m[1mInfo[22m[39m Packages marked with [32m⌃[39m have new versions available and may be upgradable.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../simple_hybrid_CS/">« Simple CS-NeuralFMU</a><a class="docs-footer-nextpage" href="../juliacon_2023/">JuliaCon 2023 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Friday 27 September 2024 07:48">Friday 27 September 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
