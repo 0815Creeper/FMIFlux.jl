@@ -109,8 +109,6 @@ info(fmu_gt)
     	Inputs:				0
     	Outputs:			0
     	States:				2
-    
-
     		33554432 ["mass.s"]
     		33554433 ["mass.v", "mass.v_relfric"]
     	Parameters:			12
@@ -124,6 +122,8 @@ info(fmu_gt)
     		16777225 ["mass.L"]
     		16777226 ["mass.m"]
     		16777227 ["mass.fexp"]
+
+    
     	Supports Co-Simulation:		true
     		Model identifier:	SpringFrictionPendulum1D
     		Get/Set State:		true
@@ -265,15 +265,13 @@ plot(sol_fmu)
     		Serialize State:	true
     		Dir. Derivatives:	true
     ##################### End information for FMU #####################
-
-    
     
 
 
 
 
     
-![svg](simple_hybrid_ME_files/simple_hybrid_ME_16_2.svg)
+![svg](simple_hybrid_ME_files/simple_hybrid_ME_16_1.svg)
     
 
 
