@@ -143,14 +143,14 @@ info(realFMU)
     	Var. naming conv.:		structured
     	Event indicators:		24
     	Inputs:				0
+
+    
     	Outputs:			0
     	States:				2
     		33554432 ["mass.s"]
     		33554433 ["mass.v", "mass.v_relfric"]
     	Parameters:			12
     		16777216 ["fricScale"]
-    
-
     		16777217 ["s0"]
     		16777218 ["v0"]
     		16777219 ["fixed.s0"]
@@ -197,7 +197,7 @@ plot(realSimData)
 
     [34mSimulating ME-FMU ...   0%|█                             |  ETA: N/A[39m
 
-    [34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:16[39m
+    [34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:17[39m
     
 
 
@@ -751,6 +751,8 @@ end
 ```
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 1/2  Epoch: 1/5
+    
+
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [51]: 0.45217
     [36m[1m│ [22m[39m        Avg displacement in data: 0.67244
     [36m[1m└ [22m[39m        Weight/Scale: 0.6029313727409417   Bias/Offset: 0.04838982792298539
@@ -850,9 +852,9 @@ end
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [1001]: 0.01483
     [36m[1m│ [22m[39m        Avg displacement in data: 0.12177
     [36m[1m└ [22m[39m        Weight/Scale: 0.7684255238986611   Bias/Offset: 0.21121321082939043
-    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 1/2  Epoch: 3/5
     
 
+    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 1/2  Epoch: 3/5
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [1051]: 0.0142
     [36m[1m│ [22m[39m        Avg displacement in data: 0.11915
     [36m[1m└ [22m[39m        Weight/Scale: 0.7668961621637944   Bias/Offset: 0.2100001457035587
@@ -1005,14 +1007,8 @@ end
     [36m[1m└ [22m[39m        Weight/Scale: 0.7438872351944437   Bias/Offset: 0.19014429963747764
     
 
-     95.053311 seconds (1.32 G allocations: 59.333 GiB, 9.46% gc time, 0.09% compilation time)
+    104.544093 seconds (1.32 G allocations: 59.333 GiB, 10.24% gc time, 0.09% compilation time)
     
-
-
-    
-![svg](modelica_conference_2021_files/modelica_conference_2021_52_51.svg)
-    
-
 
 
     
@@ -1032,18 +1028,24 @@ end
     
 
 
+
+    
+![svg](modelica_conference_2021_files/modelica_conference_2021_52_55.svg)
+    
+
+
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 1 mse: 16.30873694544497
     
 
 
     
-![svg](modelica_conference_2021_files/modelica_conference_2021_52_56.svg)
-    
-
-
-
-    
 ![svg](modelica_conference_2021_files/modelica_conference_2021_52_57.svg)
+    
+
+
+
+    
+![svg](modelica_conference_2021_files/modelica_conference_2021_52_58.svg)
     
 
 
@@ -1149,9 +1151,9 @@ end
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [3501]: 0.00136
     [36m[1m│ [22m[39m        Avg displacement in data: 0.03688
     [36m[1m└ [22m[39m        Weight/Scale: 0.7441695114493807   Bias/Offset: 0.20665220126400813
+    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 3/5
     
 
-    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 3/5
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [3551]: 0.0013
     [36m[1m│ [22m[39m        Avg displacement in data: 0.03608
     [36m[1m└ [22m[39m        Weight/Scale: 0.7442249966603137   Bias/Offset: 0.20760125403750768
@@ -1200,9 +1202,9 @@ end
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4001]: 0.00085
     [36m[1m│ [22m[39m        Avg displacement in data: 0.02911
     [36m[1m└ [22m[39m        Weight/Scale: 0.7436711003148889   Bias/Offset: 0.2158836769905478
+    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 4/5
     
 
-    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 4/5
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4051]: 0.00081
     [36m[1m│ [22m[39m        Avg displacement in data: 0.02852
     [36m[1m└ [22m[39m        Weight/Scale: 0.7433670891138677   Bias/Offset: 0.21640001472227027
@@ -1251,9 +1253,9 @@ end
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4501]: 0.00061
     [36m[1m│ [22m[39m        Avg displacement in data: 0.0248
     [36m[1m└ [22m[39m        Weight/Scale: 0.7402581611875044   Bias/Offset: 0.21952494458366242
-    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 5/5
     
 
+    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 5/5
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4551]: 0.0006
     [36m[1m│ [22m[39m        Avg displacement in data: 0.0244
     [36m[1m└ [22m[39m        Weight/Scale: 0.7398924330632394   Bias/Offset: 0.2198360859839917
@@ -1304,14 +1306,8 @@ end
     [36m[1m└ [22m[39m        Weight/Scale: 0.7366671763752564   Bias/Offset: 0.22303477489954107
     
 
-     84.178173 seconds (1.19 G allocations: 53.583 GiB, 8.82% gc time)
+     92.427234 seconds (1.19 G allocations: 53.583 GiB, 8.65% gc time)
     
-
-
-    
-![svg](modelica_conference_2021_files/modelica_conference_2021_52_110.svg)
-    
-
 
 
     
@@ -1331,19 +1327,25 @@ end
     
 
 
+
+    
+![svg](modelica_conference_2021_files/modelica_conference_2021_52_114.svg)
+    
+
+
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 1 mse: 16.30873694544497
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 2 mse: 18.472186845588634
     
 
 
     
-![svg](modelica_conference_2021_files/modelica_conference_2021_52_115.svg)
-    
-
-
-
-    
 ![svg](modelica_conference_2021_files/modelica_conference_2021_52_116.svg)
+    
+
+
+
+    
+![svg](modelica_conference_2021_files/modelica_conference_2021_52_117.svg)
     
 
 
