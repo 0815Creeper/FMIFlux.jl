@@ -50,14 +50,14 @@ info(realFMU)</code></pre><pre><code class="nohighlight hljs">##################
 	Var. naming conv.:		structured
 	Event indicators:		24
 	Inputs:				0
+
+
 	Outputs:			0
 	States:				2
 		33554432 [&quot;mass.s&quot;]
 		33554433 [&quot;mass.v&quot;, &quot;mass.v_relfric&quot;]
 	Parameters:			12
 		16777216 [&quot;fricScale&quot;]
-
-
 		16777217 [&quot;s0&quot;]
 		16777218 [&quot;v0&quot;]
 		16777219 [&quot;fixed.s0&quot;]
@@ -90,7 +90,7 @@ posReal = getValue(realSimData, &quot;mass.s&quot;)
 velReal = getValue(realSimData, &quot;mass.v&quot;)
 plot(realSimData)</code></pre><pre><code class="nohighlight hljs">[34mSimulating ME-FMU ...   0%|█                             |  ETA: N/A[39m
 
-[34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:16[39m</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_12_2.svg" alt="svg"/></p><h4 id="Define-functions"><a class="docs-heading-anchor" href="#Define-functions">Define functions</a><a id="Define-functions-1"></a><a class="docs-heading-anchor-permalink" href="#Define-functions" title="Permalink"></a></h4><p>Also, a function to extract the position and velocity from the simulation data is created.</p><pre><code class="language-julia hljs">function extractPosVel(simData)
+[34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:17[39m</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_12_2.svg" alt="svg"/></p><h4 id="Define-functions"><a class="docs-heading-anchor" href="#Define-functions">Define functions</a><a id="Define-functions-1"></a><a class="docs-heading-anchor-permalink" href="#Define-functions" title="Permalink"></a></h4><p>Also, a function to extract the position and velocity from the simulation data is created.</p><pre><code class="language-julia hljs">function extractPosVel(simData)
     if simData.states === nothing
         posData = getValue(simData, &quot;mass.s&quot;)
         velData = getValue(simData, &quot;mass.v&quot;)
@@ -358,6 +358,8 @@ numIterations = 500;</code></pre><h4 id="Training-loop"><a class="docs-heading-a
 
     plot_displacement_model!(realSimData, netTop, displacements, tSave, displacement)
 end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 1/2  Epoch: 1/5
+
+
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [51]: 0.45217
 [36m[1m│ [22m[39m        Avg displacement in data: 0.67244
 [36m[1m└ [22m[39m        Weight/Scale: 0.6029313727409417   Bias/Offset: 0.04838982792298539
@@ -457,9 +459,9 @@ end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [1001]: 0.01483
 [36m[1m│ [22m[39m        Avg displacement in data: 0.12177
 [36m[1m└ [22m[39m        Weight/Scale: 0.7684255238986611   Bias/Offset: 0.21121321082939043
+
+
 [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 1/2  Epoch: 3/5
-
-
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [1051]: 0.0142
 [36m[1m│ [22m[39m        Avg displacement in data: 0.11915
 [36m[1m└ [22m[39m        Weight/Scale: 0.7668961621637944   Bias/Offset: 0.2100001457035587
@@ -612,7 +614,7 @@ end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[
 [36m[1m└ [22m[39m        Weight/Scale: 0.7438872351944437   Bias/Offset: 0.19014429963747764
 
 
- 95.053311 seconds (1.32 G allocations: 59.333 GiB, 9.46% gc time, 0.09% compilation time)</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_51.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_52.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_53.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_54.svg" alt="svg"/></p><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 1 mse: 16.30873694544497</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_56.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_57.svg" alt="svg"/></p><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 1/5
+104.544093 seconds (1.32 G allocations: 59.333 GiB, 10.24% gc time, 0.09% compilation time)</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_52.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_53.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_54.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_55.svg" alt="svg"/></p><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 1 mse: 16.30873694544497</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_57.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_58.svg" alt="svg"/></p><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 1/5
 
 
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [2551]: 0.00286
@@ -714,9 +716,9 @@ end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [3501]: 0.00136
 [36m[1m│ [22m[39m        Avg displacement in data: 0.03688
 [36m[1m└ [22m[39m        Weight/Scale: 0.7441695114493807   Bias/Offset: 0.20665220126400813
-
-
 [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 3/5
+
+
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [3551]: 0.0013
 [36m[1m│ [22m[39m        Avg displacement in data: 0.03608
 [36m[1m└ [22m[39m        Weight/Scale: 0.7442249966603137   Bias/Offset: 0.20760125403750768
@@ -765,9 +767,9 @@ end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4001]: 0.00085
 [36m[1m│ [22m[39m        Avg displacement in data: 0.02911
 [36m[1m└ [22m[39m        Weight/Scale: 0.7436711003148889   Bias/Offset: 0.2158836769905478
-
-
 [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 4/5
+
+
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4051]: 0.00081
 [36m[1m│ [22m[39m        Avg displacement in data: 0.02852
 [36m[1m└ [22m[39m        Weight/Scale: 0.7433670891138677   Bias/Offset: 0.21640001472227027
@@ -816,9 +818,9 @@ end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4501]: 0.00061
 [36m[1m│ [22m[39m        Avg displacement in data: 0.0248
 [36m[1m└ [22m[39m        Weight/Scale: 0.7402581611875044   Bias/Offset: 0.21952494458366242
+
+
 [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mRun: 2/2  Epoch: 5/5
-
-
 [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m  Loss [4551]: 0.0006
 [36m[1m│ [22m[39m        Avg displacement in data: 0.0244
 [36m[1m└ [22m[39m        Weight/Scale: 0.7398924330632394   Bias/Offset: 0.2198360859839917
@@ -869,6 +871,6 @@ end</code></pre><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[
 [36m[1m└ [22m[39m        Weight/Scale: 0.7366671763752564   Bias/Offset: 0.22303477489954107
 
 
- 84.178173 seconds (1.19 G allocations: 53.583 GiB, 8.82% gc time)</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_110.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_111.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_112.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_113.svg" alt="svg"/></p><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 1 mse: 16.30873694544497
-[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 2 mse: 18.472186845588634</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_115.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_116.svg" alt="svg"/></p><p>Finally, the FMUs are cleaned-up.</p><pre><code class="language-julia hljs">unloadFMU(simpleFMU)
-unloadFMU(realFMU)</code></pre><h3 id="Summary"><a class="docs-heading-anchor" href="#Summary">Summary</a><a id="Summary-1"></a><a class="docs-heading-anchor-permalink" href="#Summary" title="Permalink"></a></h3><p>Based on the plots, it can be seen that the curves of the <em>realFMU</em> and the <em>neuralFMU</em> are very close. The <em>neuralFMU</em> is able to learn the friction and displacement model.</p><h3 id="Source"><a class="docs-heading-anchor" href="#Source">Source</a><a id="Source-1"></a><a class="docs-heading-anchor-permalink" href="#Source" title="Permalink"></a></h3><p>[1] Tobias Thummerer, Lars Mikelsons and Josef Kircher. 2021. <strong>NeuralFMU: towards structural integration of FMUs into neural networks.</strong> Martin Sjölund, Lena Buffoni, Adrian Pop and Lennart Ochel (Ed.). Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021. Linköping University Electronic Press, Linköping (Linköping Electronic Conference Proceedings ; 181), 297-306. <a href="https://doi.org/10.3384/ecp21181297">DOI: 10.3384/ecp21181297</a></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../juliacon_2023/">« JuliaCon 2023</a><a class="docs-footer-nextpage" href="../workshops/">Pluto Workshops »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Tuesday 1 October 2024 13:55">Tuesday 1 October 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ 92.427234 seconds (1.19 G allocations: 53.583 GiB, 8.65% gc time)</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_111.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_112.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_113.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_114.svg" alt="svg"/></p><pre><code class="nohighlight hljs">[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 1 mse: 16.30873694544497
+[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mFriction model 2 mse: 18.472186845588634</code></pre><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_116.svg" alt="svg"/></p><p><img src="../modelica_conference_2021_files/modelica_conference_2021_52_117.svg" alt="svg"/></p><p>Finally, the FMUs are cleaned-up.</p><pre><code class="language-julia hljs">unloadFMU(simpleFMU)
+unloadFMU(realFMU)</code></pre><h3 id="Summary"><a class="docs-heading-anchor" href="#Summary">Summary</a><a id="Summary-1"></a><a class="docs-heading-anchor-permalink" href="#Summary" title="Permalink"></a></h3><p>Based on the plots, it can be seen that the curves of the <em>realFMU</em> and the <em>neuralFMU</em> are very close. The <em>neuralFMU</em> is able to learn the friction and displacement model.</p><h3 id="Source"><a class="docs-heading-anchor" href="#Source">Source</a><a id="Source-1"></a><a class="docs-heading-anchor-permalink" href="#Source" title="Permalink"></a></h3><p>[1] Tobias Thummerer, Lars Mikelsons and Josef Kircher. 2021. <strong>NeuralFMU: towards structural integration of FMUs into neural networks.</strong> Martin Sjölund, Lena Buffoni, Adrian Pop and Lennart Ochel (Ed.). Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021. Linköping University Electronic Press, Linköping (Linköping Electronic Conference Proceedings ; 181), 297-306. <a href="https://doi.org/10.3384/ecp21181297">DOI: 10.3384/ecp21181297</a></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../juliacon_2023/">« JuliaCon 2023</a><a class="docs-footer-nextpage" href="../workshops/">Pluto Workshops »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Tuesday 1 October 2024 15:09">Tuesday 1 October 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
