@@ -230,6 +230,8 @@ info(fmu)
     	Inputs:				0
     	Outputs:			0
     	States:				6
+
+    
     		33554432 ["driver.accelerationPedalController.PI.x"]
     		33554433 ["driver.brakePedalController.PI.x"]
     		33554434 ["drivingCycle.s"]
@@ -246,8 +248,6 @@ info(fmu)
     		16777304 ["dynamics.accelerationCalculation.limiter.uMax"]
     		16777305 ["dynamics.accelerationCalculation.limiter.uMin"]
     		16777306 ["result.integrator.k"]
-    
-
     		16777307 ["result.integrator.y_start"]
     	Supports Co-Simulation:		true
     		Model identifier:	Longitudinaldynamic_LongitudinaldynamicmodelContinuous
