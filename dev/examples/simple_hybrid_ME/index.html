@@ -54,8 +54,6 @@ info(fmu_gt)   </code></pre><pre><code class="nohighlight hljs">################
 	Inputs:				0
 	Outputs:			0
 	States:				2
-
-
 		33554432 [&quot;mass.s&quot;]
 		33554433 [&quot;mass.v&quot;, &quot;mass.v_relfric&quot;]
 	Parameters:			12
@@ -69,6 +67,8 @@ info(fmu_gt)   </code></pre><pre><code class="nohighlight hljs">################
 		16777225 [&quot;mass.L&quot;]
 		16777226 [&quot;mass.m&quot;]
 		16777227 [&quot;mass.fexp&quot;]
+
+
 	Supports Co-Simulation:		true
 		Model identifier:	SpringFrictionPendulum1D
 		Get/Set State:		true
@@ -158,7 +158,7 @@ plot(sol_fmu)</code></pre><pre><code class="nohighlight hljs">##################
 		Get/Set State:		true
 		Serialize State:	true
 		Dir. Derivatives:	true
-##################### End information for FMU #####################</code></pre><p><img src="../simple_hybrid_ME_files/simple_hybrid_ME_16_2.svg" alt="svg"/></p><h3 id="Neural-FMU"><a class="docs-heading-anchor" href="#Neural-FMU">Neural FMU</a><a id="Neural-FMU-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-FMU" title="Permalink"></a></h3><p>Now the fun begins, let&#39;s combine the loaded FMU and the ANN! </p><pre><code class="language-julia hljs"># get number of states
+##################### End information for FMU #####################</code></pre><p><img src="../simple_hybrid_ME_files/simple_hybrid_ME_16_1.svg" alt="svg"/></p><h3 id="Neural-FMU"><a class="docs-heading-anchor" href="#Neural-FMU">Neural FMU</a><a id="Neural-FMU-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-FMU" title="Permalink"></a></h3><p>Now the fun begins, let&#39;s combine the loaded FMU and the ANN! </p><pre><code class="language-julia hljs"># get number of states
 numStates = getNumberOfStates(fmu)
 
 net = Chain(x -&gt; fmu(x=x, dx_refs=:all),    # we can use the FMU just like any other neural network layer!
@@ -287,4 +287,4 @@ import Pkg; Pkg.status()</code></pre><pre><code class="nohighlight hljs">[32m[
   [90m[f0f68f2c] [39mPlotlyJS v0.18.14
   [90m[91a5bcdd] [39mPlots v1.40.8
   [90m[9a3f8284] [39mRandom
-[36m[1mInfo[22m[39m Packages marked with [32m⌃[39m have new versions available and may be upgradable.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../simple_hybrid_CS/">« Simple CS-NeuralFMU</a><a class="docs-footer-nextpage" href="../juliacon_2023/">JuliaCon 2023 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Tuesday 1 October 2024 13:35">Tuesday 1 October 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+[36m[1mInfo[22m[39m Packages marked with [32m⌃[39m have new versions available and may be upgradable.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../simple_hybrid_CS/">« Simple CS-NeuralFMU</a><a class="docs-footer-nextpage" href="../juliacon_2023/">JuliaCon 2023 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Tuesday 1 October 2024 13:55">Tuesday 1 October 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
