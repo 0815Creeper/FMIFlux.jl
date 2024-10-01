@@ -230,8 +230,6 @@ info(fmu)
     	Inputs:				0
     	Outputs:			0
     	States:				6
-
-    
     		33554432 ["driver.accelerationPedalController.PI.x"]
     		33554433 ["driver.brakePedalController.PI.x"]
     		33554434 ["drivingCycle.s"]
@@ -253,6 +251,8 @@ info(fmu)
     		Model identifier:	Longitudinaldynamic_LongitudinaldynamicmodelContinuous
     		Get/Set State:		true
     		Serialize State:	true
+
+    
     		Dir. Derivatives:	true
     		Var. com. steps:	true
     		Input interpol.:	true
@@ -889,12 +889,12 @@ train!([0.0001,  0.9,  0.999,      4.0,        0.7,   :Random, :MSE],      8.0, 
     
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mCurrent step: 1 | Current element=92 | Next element=55
+    
+
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.20e+04 | MAX: 1.75e+06 | SUM: 1.75e+06
     
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mCurrent step: 2 | Current element=55 | Next element=106
-    
-
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.21e+04 | MAX: 1.75e+06 | SUM: 1.75e+06
     
 
