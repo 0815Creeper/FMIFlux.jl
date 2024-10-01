@@ -106,6 +106,8 @@ info(fmu_gt)
     	Var. naming conv.:		structured
     	Event indicators:		0
     	Inputs:				0
+
+    
     	Outputs:			0
     	States:				2
     		33554432 ["mass.s"]
@@ -118,8 +120,6 @@ info(fmu_gt)
     		16777220 ["spring.s_rel0"]
     		16777221 ["mass.m"]
     		16777222 ["mass.L"]
-    
-
     	Supports Co-Simulation:		true
     		Model identifier:	SpringPendulum1D
     		Get/Set State:		true
@@ -439,6 +439,8 @@ FMIFlux.train!(
 ```
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [1]: 16.874727
+    
+
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [21]: 10.452957
     
 
