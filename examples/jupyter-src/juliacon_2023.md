@@ -251,9 +251,9 @@ info(fmu)
     		Model identifier:	Longitudinaldynamic_LongitudinaldynamicmodelContinuous
     		Get/Set State:		true
     		Serialize State:	true
+    		Dir. Derivatives:	true
 
     
-    		Dir. Derivatives:	true
     		Var. com. steps:	true
     		Input interpol.:	true
     		Max order out. der.:	1
@@ -883,14 +883,10 @@ train!([0.0001,  0.9,  0.999,      4.0,        0.7,   :Random, :MSE],      8.0, 
     [36m[1m┌ [22m[39m[36m[1mInfo: [22m[39m--------------
     [36m[1m│ [22m[39mStarting run 1 with parameters: Any[0.0001, 0.9, 0.999, 4.0, 0.7, :Random, :MSE] and resource 8.0 doing 2 step(s).
     [36m[1m└ [22m[39m--------------------
-    
-
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mCurrent step: 0 | Current element=0 | Next element=92
     
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mCurrent step: 1 | Current element=92 | Next element=55
-    
-
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.20e+04 | MAX: 1.75e+06 | SUM: 1.75e+06
     
 
