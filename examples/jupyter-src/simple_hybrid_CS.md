@@ -123,8 +123,6 @@ info(fmu_gt)
     		Get/Set State:		true
     		Serialize State:	true
     		Dir. Derivatives:	true
-
-    
     		Var. com. steps:	true
     		Input interpol.:	true
     		Max order out. der.:	1
@@ -439,8 +437,6 @@ FMIFlux.train!(
 ```
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [1]: 16.874727
-    
-
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mLoss [21]: 10.452957
     
 
@@ -556,17 +552,17 @@ import Pkg; Pkg.status()
 ```
 
     [32m[1mStatus[22m[39m `D:\a\FMIFlux.jl\FMIFlux.jl\examples\Project.toml`
-      [90m[0c46a032] [39mDifferentialEquations v7.14.0
-      [90m[14a09403] [39mFMI v0.14.1
+      [90m[0c46a032] [39mDifferentialEquations v7.15.0
+      [90m[14a09403] [39mFMI v0.14.2
       [90m[fabad875] [39mFMIFlux v0.13.0 `D:\a\FMIFlux.jl\FMIFlux.jl`
       [90m[9fcbc62e] [39mFMIImport v1.0.8
-      [90m[724179cf] [39mFMIZoo v1.1.0
-      [90m[587475ba] [39mFlux v0.14.22
-      [90m[7073ff75] [39mIJulia v1.25.0
+      [90m[724179cf] [39mFMIZoo v1.2.0
+    [33m⌅[39m [90m[587475ba] [39mFlux v0.14.25
+      [90m[7073ff75] [39mIJulia v1.26.0
     [32m⌃[39m [90m[033835bb] [39mJLD2 v0.4.53
       [90m[b964fa9f] [39mLaTeXStrings v1.4.0
-      [90m[f0f68f2c] [39mPlotlyJS v0.18.14
-      [90m[91a5bcdd] [39mPlots v1.40.8
+      [90m[f0f68f2c] [39mPlotlyJS v0.18.15
+      [90m[91a5bcdd] [39mPlots v1.40.9
       [90m[9a3f8284] [39mRandom
-    [36m[1mInfo[22m[39m Packages marked with [32m⌃[39m have new versions available and may be upgradable.
+    [36m[1mInfo[22m[39m Packages marked with [32m⌃[39m and [33m⌅[39m have new versions available. Those with [32m⌃[39m may be upgradable, but those with [33m⌅[39m are restricted by compatibility constraints from upgrading. To see why use `status --outdated`
     
