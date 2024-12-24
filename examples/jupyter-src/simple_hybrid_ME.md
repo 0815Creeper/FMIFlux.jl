@@ -109,8 +109,6 @@ info(fmu_gt)
     	Inputs:				0
     	Outputs:			0
     	States:				2
-    
-
     		33554432 ["mass.s"]
     		33554433 ["mass.v", "mass.v_relfric"]
     	Parameters:			12
@@ -159,7 +157,7 @@ plot(sol_gt; states=false)
 
     [34mSimulating ME-FMU ...   0%|█                             |  ETA: N/A[39m
 
-    [34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:16[39m
+    [34mSimulating ME-FMU ... 100%|██████████████████████████████| Time: 0:00:18[39m
     
 
 
@@ -185,29 +183,29 @@ pos_gt = getValue(sol_gt, "mass.s")
      0.5
      0.5002131418271644
      0.500854887495059
-     0.5019281657516876
+     0.5019281657516875
      0.5034351795370763
-     0.50537742474533
-     0.5077556973743648
-     0.5105701110158936
-     0.5138201163230011
-     0.5175045276221266
-     0.5216215241870015
-     0.5261686593877334
-     0.5311429006829193
+     0.5053774247453302
+     0.507755697374365
+     0.5105701110158931
+     0.5138201163230005
+     0.5175045276221268
+     0.5216215241870019
+     0.5261686593877336
+     0.5311429006829188
      ⋮
-     1.0616593561654388
-     1.0627701713285898
-     1.0637521434353139
-     1.0646032889175199
-     1.0653217119141543
-     1.0659056034549985
-     1.0663532416435237
-     1.0666629937790932
-     1.0668333163759727
-     1.0668685641881956
-     1.0668685641871958
-     1.0668685641861957
+     1.0616593561661574
+     1.0627701713291955
+     1.0637521434358055
+     1.064603288917896
+     1.0653217119144138
+     1.06590560345514
+     1.066353241643546
+     1.066662993778995
+     1.0668333163757535
+     1.06686856418789
+     1.06686856418689
+     1.06686856418589
 
 
 
@@ -265,15 +263,13 @@ plot(sol_fmu)
     		Serialize State:	true
     		Dir. Derivatives:	true
     ##################### End information for FMU #####################
-
-    
     
 
 
 
 
     
-![svg](simple_hybrid_ME_files/simple_hybrid_ME_16_2.svg)
+![svg](simple_hybrid_ME_files/simple_hybrid_ME_16_1.svg)
     
 
 
@@ -514,17 +510,17 @@ import Pkg; Pkg.status()
 ```
 
     [32m[1mStatus[22m[39m `D:\a\FMIFlux.jl\FMIFlux.jl\examples\Project.toml`
-      [90m[0c46a032] [39mDifferentialEquations v7.14.0
-      [90m[14a09403] [39mFMI v0.14.1
+      [90m[0c46a032] [39mDifferentialEquations v7.15.0
+      [90m[14a09403] [39mFMI v0.14.2
       [90m[fabad875] [39mFMIFlux v0.13.0 `D:\a\FMIFlux.jl\FMIFlux.jl`
       [90m[9fcbc62e] [39mFMIImport v1.0.8
-      [90m[724179cf] [39mFMIZoo v1.1.0
-      [90m[587475ba] [39mFlux v0.14.22
-      [90m[7073ff75] [39mIJulia v1.25.0
+      [90m[724179cf] [39mFMIZoo v1.2.0
+    [33m⌅[39m [90m[587475ba] [39mFlux v0.14.25
+      [90m[7073ff75] [39mIJulia v1.26.0
     [32m⌃[39m [90m[033835bb] [39mJLD2 v0.4.53
       [90m[b964fa9f] [39mLaTeXStrings v1.4.0
-      [90m[f0f68f2c] [39mPlotlyJS v0.18.14
-      [90m[91a5bcdd] [39mPlots v1.40.8
+      [90m[f0f68f2c] [39mPlotlyJS v0.18.15
+      [90m[91a5bcdd] [39mPlots v1.40.9
       [90m[9a3f8284] [39mRandom
-    [36m[1mInfo[22m[39m Packages marked with [32m⌃[39m have new versions available and may be upgradable.
+    [36m[1mInfo[22m[39m Packages marked with [32m⌃[39m and [33m⌅[39m have new versions available. Those with [32m⌃[39m may be upgradable, but those with [33m⌅[39m are restricted by compatibility constraints from upgrading. To see why use `status --outdated`
     
