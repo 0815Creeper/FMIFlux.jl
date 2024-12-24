@@ -203,9 +203,9 @@ display(data.params)
 
 
     Dict{String, Any} with 3 entries:
-      "peFileName" => "C:\\Users\\runneradmin\\.julia\\packages\\FMIZoo\\WtBM9\\src…
-      "edFileName" => "C:\\Users\\runneradmin\\.julia\\packages\\FMIZoo\\WtBM9\\src…
-      "dcFileName" => "C:\\Users\\runneradmin\\.julia\\packages\\FMIZoo\\WtBM9\\src…
+      "peFileName" => "C:\\Users\\runneradmin\\.julia\\packages\\FMIZoo\\DelkX\\src…
+      "edFileName" => "C:\\Users\\runneradmin\\.julia\\packages\\FMIZoo\\DelkX\\src…
+      "dcFileName" => "C:\\Users\\runneradmin\\.julia\\packages\\FMIZoo\\DelkX\\src…
 
 
 After that, we load the FMU and have a look on its model meta data.
@@ -252,8 +252,6 @@ info(fmu)
     		Get/Set State:		true
     		Serialize State:	true
     		Dir. Derivatives:	true
-
-    
     		Var. com. steps:	true
     		Input interpol.:	true
     		Max order out. der.:	1
@@ -288,7 +286,7 @@ display(resultFMU)
     Success:
     	true
     f(x)-Evaluations:
-    	In-place: 441149
+    	In-place: 440577
     	Out-of-place: 0
     Jacobian-Evaluations:
     	∂ẋ_∂p: 0
@@ -306,11 +304,11 @@ display(resultFMU)
     	∂y_∂t: 0
     	∂e_∂t: 0
     Callback-Evaluations:
-    	Condition (event-indicators): 756903
+    	Condition (event-indicators): 756275
     	Time-Choice (event-instances): 58371
     	Affect (event-handling): 58409
     	Save values: 5838
-    	Steps completed: 62982
+    	Steps completed: 62930
     States [5838]:
     	0.0	[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     	0.1	[-1.0313822985067192e-12, -1.5470734477600789e-12, 0.0, 7.219676089547036e-12, -1.0224379404543445e-5, 14.260000000955804]
@@ -322,7 +320,7 @@ display(resultFMU)
     	0.7	[-1.0313822985067192e-12, -1.5470734477600789e-12, 0.0, 7.219676089547036e-12, -1.0224379404543445e-5, 99.82000000095582]
     	0.8	[-1.0313822985067192e-12, -1.5470734477600789e-12, 0.0, 7.219676089547036e-12, -1.0224379404543445e-5, 114.08000000095585]
     	...
-    	583.7	[-0.001916469855443799, -0.054120690516540136, 3131.826061088337, 3131.346886892768, -4.101183271996665e-5, 1.425987553834784e6]
+    	583.7	[-0.0019164698553799668, -0.05412069051654079, 3131.8260610883676, 3131.346886892798, -4.101183272042736e-5, 1.4259875540424264e6]
     Values [5838]:
     	0.0	(0.0, 0.0, 0.0, 0.0, -0.1773972602739726, 142.6)
     	0.1	(0.0, 0.0, 0.0, 0.0, 0.0, 142.6)
@@ -589,7 +587,7 @@ display(resultNFMU)
     	0.7	[-1.0313822985067192e-12, -1.5470734477600789e-12, 0.0, 7.219676089547036e-12, -1.0224379404543445e-5, 99.82000000095582]
     	0.8	[-1.0313822985067192e-12, -1.5470734477600789e-12, 0.0, 7.219676089547036e-12, -1.0224379404543445e-5, 114.08000000095585]
     	...
-    	583.7	[-0.0019167094095930257, -0.05412068948173644, 3131.826061088355, 3131.346887534511, -4.3267310775923446e-5, 1.4259877656765594e6]
+    	583.7	[-0.001916709409592919, -0.05412068948173628, 3131.826061088355, 3131.346887534512, -4.3267310775923446e-5, 1.425987765676597e6]
     Events [58409]:
     	Time-Event @ 0.01s (state-change: false)
     	Time-Event @ 0.02s (state-change: false)
@@ -887,17 +885,17 @@ train!([0.0001,  0.9,  0.999,      4.0,        0.7,   :Random, :MSE],      8.0, 
     
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mCurrent step: 1 | Current element=92 | Next element=55
-    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.20e+04 | MAX: 1.75e+06 | SUM: 1.75e+06
+    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.22e+04 | MAX: 1.77e+06 | SUM: 1.77e+06
     
 
     [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mCurrent step: 2 | Current element=55 | Next element=106
-    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.21e+04 | MAX: 1.75e+06 | SUM: 1.75e+06
+    [36m[1m[ [22m[39m[36m[1mInfo: [22m[39mAVG: 1.22e+04 | MAX: 1.77e+06 | SUM: 1.78e+06
     
 
 
 
 
-    9.046692788787865e9
+    9.047788476628687e9
 
 
 
